@@ -1,10 +1,10 @@
-Backend Start Project
-=====================
+Backend for Rock-band Online-Radio
+==================================
 
 Описание
 --------
 
-Стартовый проект на Express.js с Babel.
+Creative work. Backend for site of rock band with radio on Express.js с Babel.
 
 
 API
@@ -23,6 +23,13 @@ Deploy
 Установка зависимостей npm packages
 
     $ npm install
+
+
+Build JSON for songs to be parsed (it'll be later automated):
+-------------------------------------------------------------
+
+$ npm run build:songs:json
+
 
 Development
 -----------
