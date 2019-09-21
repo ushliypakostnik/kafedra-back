@@ -29,8 +29,7 @@ Build JSON for songs to be parsed
 ---------------------------------
 (it'll be later automated):
 
-
-$ npm run build:songs:json
+    $ npm run build:songs:json
 
 
 Development
