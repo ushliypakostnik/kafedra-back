@@ -1,12 +1,12 @@
+import mm from 'musicmetadata';
+import fs from 'fs-extra';
+import path from 'path';
+
 if (require.main === module) {
   throw 'restricted: called directly from cli';
 }
 
-const mm = require('musicmetadata');
-const fs = require('fs-extra');
-const path = require('path');
-
-function getMP3Info(pathToMp3File) {
+const getMP3Info = (pathToMp3File) => {
   const readableStream = fs.createReadStream(pathToMp3File);
 
   return new Promise((resolve) => {
@@ -18,7 +18,7 @@ function getMP3Info(pathToMp3File) {
   });
 }
 
-function getSongFilesFsPromises(folderAbsPath, folderRelPath, songFiles) {
+const getSongFilesFsPromises = (folderAbsPath, folderRelPath, songFiles) => {
   return songFiles
     .filter(songFile => songFile.indexOf('mp3') === songFile.length - 3)
     .map(songFile => new Promise((resolveForSongFile) => {
@@ -38,7 +38,7 @@ function getSongFilesFsPromises(folderAbsPath, folderRelPath, songFiles) {
     }));
 }
 
-function getFoldersFsPromises(absJSONTargetPath, folders) {
+export const getFoldersFsPromises = (absJSONTargetPath, folders) => {
   return folders
     .filter(file => file.isDirectory())
     .map(folder => new Promise((resolveForFolder) => {
@@ -55,7 +55,7 @@ function getFoldersFsPromises(absJSONTargetPath, folders) {
     }));
 }
 
-function writeResultsFile(absJSONTargetPath, foldersResults) {
+export const writeResultsFile = (absJSONTargetPath, foldersResults) => {
   const plainFoldersResults = foldersResults.reduce((acc, v) => {
     Array.prototype.push.apply(acc, v);
     return acc;
@@ -69,8 +69,3 @@ function writeResultsFile(absJSONTargetPath, foldersResults) {
     console.log('The file has been saved!');
   });
 }
-
-module.exports = {
-  getFoldersFsPromises,
-  writeResultsFile
-};

@@ -1,11 +1,16 @@
+import path from 'path';
+
 require('dotenv').config();
 
 const env = process.env.NODE_ENV;
+
+const absJSONTargetPath = path.resolve(__dirname, 'audio');
 
 const common = {
   PORT: process.env.PORT || 8082,
   MEDIA_DIR: process.env.MEDIA_DIR || 'media',
   STATIC_SERVE: false,
+  TARGET_PATH: absJSONTargetPath,
 };
 
 const development = {

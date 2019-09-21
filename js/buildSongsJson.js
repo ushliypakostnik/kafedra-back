@@ -1,16 +1,19 @@
-const fs = require('fs-extra');
-const path = require('path');
+import fs from 'fs-extra';
+import path from 'path';
 
-const { getFoldersFsPromises, writeResultsFile } = require('./_helpers');
+import config from '../config';
 
-const absJSONTargetPath = path.resolve(__dirname, '..', 'audio');
+import {
+  getFoldersFsPromises,
+  writeResultsFile
+} from './_helpers';
 
-fs.readdir(absJSONTargetPath, {
+fs.readdir(config.TARGET_PATH, {
   withFileTypes: true,
 }, (err, folders) => {
   if (err) throw err;
 
   Promise.all(
-    getFoldersFsPromises(absJSONTargetPath, folders)
-  ).then(foldersResults => writeResultsFile(absJSONTargetPath, foldersResults));
+    getFoldersFsPromises(config.TARGET_PATH, folders)
+  ).then(foldersResults => writeResultsFile(config.TARGET_PATH, foldersResults));
 });
