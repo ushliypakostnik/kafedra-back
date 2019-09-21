@@ -20,7 +20,9 @@ pass.js
 # local env files
 .DS_Store
 .env
-.env.*
+.env.local
+.env.*.local
+.env.development
 
 # log files
 npm-debug.log*
