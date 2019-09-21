@@ -20,8 +20,6 @@ function getMP3Info(pathToMp3File) {
 
 function getSongFilesFsPromises(folderAbsPath, folderRelPath, songFiles) {
 
-  console.log('getSongFilesFsPromises: ', folderAbsPath, folderRelPath, songFiles);
-
   return songFiles
     .filter(songFile => songFile.indexOf('mp3') === songFile.length - 3)
     .map(songFile => new Promise((resolveForSongFile) => {
@@ -42,8 +40,6 @@ function getSongFilesFsPromises(folderAbsPath, folderRelPath, songFiles) {
 }
 
 function getFoldersFsPromises(absJSONTargetPath, folders) {
-
-  console.log('getFoldersFsPromises: ', absJSONTargetPath, folders);
 
   return folders
     .filter(file => file.isDirectory())

@@ -12,8 +12,6 @@ fs.readdir(absJSONTargetPath, {
 }, (err, folders) => {
   if (err) throw err;
 
-  console.log('folders: ', folders);
-
   Promise.all(
     getFoldersFsPromises(absJSONTargetPath, folders)
   ).then(foldersResults => writeResultsFile(absJSONTargetPath, foldersResults));
