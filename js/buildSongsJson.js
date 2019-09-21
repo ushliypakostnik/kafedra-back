@@ -5,8 +5,6 @@ const { getFoldersFsPromises, writeResultsFile } = require('./_helpers');
 
 const absJSONTargetPath = path.resolve(__dirname, '..', 'audio');
 
-console.log('absJSONTargetPath: ', absJSONTargetPath);
-
 fs.readdir(absJSONTargetPath, {
   withFileTypes: true,
 }, (err, folders) => {
