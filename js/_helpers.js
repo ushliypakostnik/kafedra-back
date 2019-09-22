@@ -2,6 +2,8 @@ import mm from 'musicmetadata';
 import fs from 'fs-extra';
 import path from 'path';
 
+import config from '../config';
+
 if (require.main === module) {
   throw 'restricted: called directly from cli';
 }
@@ -64,7 +66,7 @@ export const writeResultsFile = (absJSONTargetPath, foldersResults) => {
     songs: plainFoldersResults
   });
 
-  fs.writeFile(`${absJSONTargetPath}/songs.json`, data, (error) => {
+  fs.writeFile(`${absJSONTargetPath}/${config.TARGET}`, data, (error) => {
     if (error) throw error;
     console.log('The file has been saved!');
   });
