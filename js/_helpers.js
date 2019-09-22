@@ -34,11 +34,18 @@ const getSongFilesFsPromises = (folderAbsPath, folderRelPath, songFiles) => {
         delete results.picture;
         delete results.disk;
         delete results.albumartist;
+        delete results.artist;
+        delete results.year;
+        delete results.track;
+        delete results.genre;
         /* eslint-enable no-param-reassign */
 
+        console.log(folderRelPath);
+
         resolveForSongFile({
-          meta: results,
-          url: `${folderRelPath}/${songFile}`,
+          title: results.title,
+          url: `${config.HOST}${folderRelPath}/${songFile}`,
+          duration: results.duration,
         });
       }).catch((err) => console.error('something goes wrong', err)); // eslint-disable-line arrow-parens
     }));
@@ -67,9 +74,7 @@ export const writeResultsFile = (absJSONTargetPath, foldersResults) => {
     Array.prototype.push.apply(acc, v);
     return acc;
   }, []);
-  const data = JSON.stringify({
-    songs: plainFoldersResults,
-  });
+  const data = JSON.stringify(plainFoldersResults);
 
   fs.writeFile(`${absJSONTargetPath}/${config.TARGET}`, data, (error) => {
     if (error) throw error;
