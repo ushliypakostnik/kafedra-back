@@ -12,11 +12,11 @@ router.get('/songs', (req, res, next) => {
   let songs = {};
 
   try {
-    songs = JSON.parse(fs.readFileSync(fileAbsPath, 'utf8'));
+    songs = JSON.stringify(fs.readFileSync(fileAbsPath, 'utf8'));
   } catch (err) {
     throw err;
   }
-  return res.status(200).json(songs);
+  return res.status(200).send(songs);
 });
 
 export default router;
