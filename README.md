@@ -48,7 +48,7 @@ Development
 Production
 ----------
 
-Запуск проекта для продакшена (will automatically start build:songs:json)
+Запуск проекта для продакшена (будет автоматически запущено build:songs:json)
 
     $ npm start
 
