@@ -11,6 +11,13 @@ API
 ---
 
     GET
+    ${HOST}/api/songs
+
+Роут который возвращает список песен с метаданными собранным по одноуровневым папкам-альбомам в каталоге /audio
+
+*
+
+    GET
     ${HOST}/test
 
 Тестовый роут
@@ -27,7 +34,6 @@ Deploy
 
 Build JSON for songs to be parsed
 ---------------------------------
-(it'll be later automated):
 
     $ npm run build:songs:json
 
@@ -35,16 +41,16 @@ Build JSON for songs to be parsed
 Development
 -----------
 
-    $ npm start
+    $ npm run dev
 
     http://localhost:8082/
 
 Production
 ----------
 
-Запуск проекта для продакшена
+Запуск проекта для продакшена (will automatically start build:songs:json)
 
-    $ npm run prod
+    $ npm start
 
 Тесты
 -----

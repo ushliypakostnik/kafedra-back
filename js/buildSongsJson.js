@@ -4,7 +4,7 @@ import config from '../config';
 
 import {
   getFoldersFsPromises,
-  writeResultsFile
+  writeResultsFile,
 } from './_helpers';
 
 fs.readdir(config.TARGET_PATH, {
@@ -13,6 +13,6 @@ fs.readdir(config.TARGET_PATH, {
   if (err) throw err;
 
   Promise.all(
-    getFoldersFsPromises(config.TARGET_PATH, folders)
+    getFoldersFsPromises(config.TARGET_PATH, folders),
   ).then(foldersResults => writeResultsFile(config.TARGET_PATH, foldersResults));
 });

@@ -5,10 +5,10 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "prestart": "npm run build:songs:json",
-    "start": "cross-env NODE_ENV=development nodemon server.js --exec babel-node",
-    "prod": "cross-env NODE_ENV=production nodemon server.js --exec babel-node",
     "build:songs:json": "babel-node js/buildSongsJson.js",
+    "dev": "cross-env NODE_ENV=development nodemon server.js --exec babel-node",
+    "prestart": "npm run build:songs:json",
+    "start": "cross-env NODE_ENV=production nodemon server.js --exec babel-node",
     "lint": "eslint .",
     "test": "cross-env NODE_ENV=development jest --watch"
   },

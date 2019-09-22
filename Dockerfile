@@ -6,16 +6,15 @@ COPY package*.json ./
 
 # install dependencies
 RUN npm install
-RUN npm postinstall
 
 COPY . .
 
 EXPOSE 8082
 
 # for development
-# CMD ["npm", "start"]
+# CMD ["npm", "run", "dev"]
 # for production
-CMD ["npm", "run", "prod"]
+CMD ["npm", "run", "start"]
 
 # Сборка образа
 # sudo docker build -t express-auth .

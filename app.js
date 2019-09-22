@@ -11,12 +11,12 @@ const app = express();
 
 // CORS
 if (config.CORS_ENABLED) {
-const corsOptions = {
-    credentials: true,
-    origin: function (origin, callback) {
+  const corsOptions = {
+    credentials: true, // eslint-disable-line object-shorthand
+    origin: (origin, callback) => {
       callback(null, origin);
-    }
-  }
+    },
+  };
 
   app.use(cors(corsOptions));
 }
