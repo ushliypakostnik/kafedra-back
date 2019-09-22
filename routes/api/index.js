@@ -22,5 +22,4 @@ router.get('/songs', (req, res, next) => {
   }
 });
 
-
 export default router;
