@@ -9,4 +9,11 @@ describe('test the api', () => {
       done();
     });
   });
+
+  test('GET /api/songs', (done) => {
+    request(app).get('/api/songs').then((response) => {
+      expect(response.statusCode).toBe(200);
+      done();
+    });
+  });
 });
