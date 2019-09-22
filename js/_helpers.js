@@ -40,8 +40,6 @@ const getSongFilesFsPromises = (folderAbsPath, folderRelPath, songFiles) => {
         delete results.genre;
         /* eslint-enable no-param-reassign */
 
-        console.log(folderRelPath);
-
         resolveForSongFile({
           title: results.title,
           url: `${config.HOST}${folderRelPath}/${songFile}`,
