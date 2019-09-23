@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-WORKDIR /projects/github/express-auth
+WORKDIR /projects/github/kafedra-back
 
 COPY package*.json ./
 
@@ -17,7 +17,7 @@ EXPOSE 8082
 CMD ["npm", "run", "start"]
 
 # Сборка образа
-# sudo docker build -t express-auth .
+# sudo docker build -t kafedra-back .
 
 # Запуск образа
-# sudo docker run -p 8082:8082 express-auth
+# sudo docker run -p 8082:8082 kafedra-back
