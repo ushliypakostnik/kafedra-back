@@ -1,7 +1,7 @@
 {
-  "name": "express-babel",
+  "name": "kafedra-back",
   "version": "1.0.0",
-  "description": "Express on Babel start project",
+  "description": "Backend for site of rock band with radio",
   "private": true,
   "main": "server.js",
   "scripts": {
