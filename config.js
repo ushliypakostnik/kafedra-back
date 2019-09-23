@@ -6,8 +6,6 @@ if (env === 'production') {
   require('dotenv').config();
 }
 
-console.log(env);
-
 const absJSONTargetPath = path.resolve(__dirname, 'audio');
 
 const common = {
