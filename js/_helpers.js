@@ -1,4 +1,4 @@
-import mm from 'musicmetadata';
+import * as mm from 'music-metadata';
 import fs from 'fs-extra';
 import path from 'path';
 
@@ -8,19 +8,6 @@ if (require.main === module) {
   throw 'restricted: called directly from cli'; // eslint-disable-line no-throw-literal
 }
 
-const getMP3Info = (pathToMp3File) => {
-  const readableStream = fs.createReadStream(pathToMp3File);
-
-  return new Promise((resolve) => {
-    mm(readableStream, { duration: true }, (err, metadata) => {
-      if (err) throw err;
-
-      readableStream.close();
-      resolve(metadata);
-    });
-  });
-};
-
 // eslint-disable-next-line arrow-body-style
 const getSongFilesFsPromises = (folderAbsPath, folderRelPath, songFiles) => {
   return songFiles
@@ -28,22 +15,12 @@ const getSongFilesFsPromises = (folderAbsPath, folderRelPath, songFiles) => {
     .map(songFile => new Promise((resolveForSongFile) => {
       const fileAbsPath = path.resolve(folderAbsPath, songFile);
 
-      getMP3Info(fileAbsPath).then((results) => {
-        // remove surely useless info
-        /* eslint-disable no-param-reassign */
-        delete results.picture;
-        delete results.disk;
-        delete results.albumartist;
-        delete results.artist;
-        delete results.year;
-        delete results.track;
-        delete results.genre;
-        /* eslint-enable no-param-reassign */
+      mm.parseFile(fileAbsPath, { duration: true }).then(metadata => {
 
         resolveForSongFile({
-          title: results.title,
+          title: metadata.common.title,
           url: `${config.HOST}${folderRelPath}/${songFile}`,
-          duration: results.duration,
+          duration: metadata.format.duration,
         });
       }).catch((err) => console.error('something goes wrong', err)); // eslint-disable-line arrow-parens
     }));
