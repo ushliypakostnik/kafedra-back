@@ -16,8 +16,8 @@
   "author": "Levon Gambaryan",
   "license": "ISC",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/ushliypakostnik/kafedra-back"
+    "type": "git",
+    "url": "https://github.com/ushliypakostnik/kafedra-back"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -26,7 +26,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
     "fs-extra": "^8.1.0",
-    "musicmetadata": "^2.0.5",
+    "music-metadata": "^4.8.0",
     "nodemon": "^1.19.0",
     "url": "^0.11.0"
   },
