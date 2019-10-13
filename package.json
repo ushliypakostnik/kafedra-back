@@ -5,7 +5,7 @@
   "private": true,
   "main": "server.js",
   "scripts": {
-    "build:songs:json": "babel-node js/buildSongsJson.js",
+    "build:songs:json": "cross-env NODE_ENV=production babel-node js/buildSongsJson.js",
     "build:songs:json:dev": "cross-env NODE_ENV=development babel-node js/buildSongsJson.js",
     "dev": "cross-env NODE_ENV=development nodemon server.js --exec babel-node",
     "prestart": "cross-env NODE_ENV=production npm run build:songs:json",
