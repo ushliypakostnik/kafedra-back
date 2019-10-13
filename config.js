@@ -25,8 +25,8 @@ const development = {
 
 const production = {
   ...common,
-  HOST: process.env.HOST || 'https://express-auth.kafedra.org',
-  MEDIA_URL: process.env.MEDIA_URL || 'https://express-auth.kafedra.org/media',
+  HOST: process.env.HOST || 'https://backend.kafedra.org',
+  MEDIA_URL: process.env.MEDIA_URL || 'https://backend.kafedra.org/media',
   STATIC_SERVE: process.env.STATIC_SERVE || false,
   CORS_ENABLED: process.env.CORS_ENABLED || false,
 };
